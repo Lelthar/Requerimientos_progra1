@@ -14,15 +14,11 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password:
+  password: root
   socket: /var/run/mysqld/mysqld.sock
 
 development:
-  adapter: mysql2
-  username: root
-  password:
-  host: localhost
-  socket: /tmp/mysql.sock
+  <<: *default
   database: web_el_batatico_development
 
 # Warning: The database defined as "test" will be erased and
