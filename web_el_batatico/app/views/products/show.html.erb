@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<div class="field">
+<%= image_tag @product.cover.url() %>  
+</div>
+<p>
+  <strong>Id producto:</strong>
+  <%= @product.id_producto %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @product.nombre %>
+</p>
+
+<p>
+  <strong>Detalle:</strong>
+  <%= @product.detalle %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @product.precio %>
+</p>
+
+<p>
+  <strong>Fecha inicio:</strong>
+  <%= @product.fecha_inicio %>
+</p>
+
+<p>
+  <strong>Fecha final:</strong>
+  <%= @product.fecha_final %>
+</p>
+
+<p>
+  <strong>Disponibles:</strong>
+  <%= @product.disponibles %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

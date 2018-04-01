@@ -1,0 +1,64 @@
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :id_producto %>
+    <%= form.text_field :id_producto, id: :product_id_producto %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :product_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :detalle %>
+    <%= form.text_field :detalle, id: :product_detalle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :precio %>
+    <%= form.number_field :precio, id: :product_precio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_inicio %>
+    <%= form.date_select :fecha_inicio, id: :product_fecha_inicio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_final %>
+    <%= form.date_select :fecha_final, id: :product_fecha_final %>
+  </div>
+
+  <div class="field">
+    <%= form.label :disponibles %>
+    <%= form.number_field :disponibles, id: :product_disponibles %>
+  </div>
+
+<div class="field">
+  <%= form.file_field :cover%>
+</div>
+
+<div class="field">
+  <label> Categorias</label>
+   <%@categories.each do |category| %>
+   <div class="field">
+        <%= check_box_tag "categories[]",category.id %> <%= category.name%>
+   </div>
+<% end %>
+</div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

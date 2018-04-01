@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_producto: MyString
+  nombre: MyString
+  detalle: MyString
+  precio: 1
+  fecha_inicio: 2018-03-31
+  fecha_final: 2018-03-31
+  disponibles: 1
+
+two:
+  id_producto: MyString
+  nombre: MyString
+  detalle: MyString
+  precio: 1
+  fecha_inicio: 2018-03-31
+  fecha_final: 2018-03-31
+  disponibles: 1

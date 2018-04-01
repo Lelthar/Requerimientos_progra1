@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Imagen</th>
+      <th>Nombre</th>
+      <th>Detalle</th>
+      <th>Precio</th>
+      <th>Fecha inicio</th>
+      <th>Fecha final</th>
+      <th>Disponibles</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td>
+<%= image_tag product.cover.url(:mini) %>  
+</td>
+        <td><%= product.nombre %></td>
+        <td><%= product.detalle %></td>
+        <td><%= product.precio %></td>
+        <td><%= product.fecha_inicio %></td>
+        <td><%= product.fecha_final %></td>
+        <td><%= product.disponibles %></td>
+        <td><%= link_to 'Ver', product %></td>
+        <td><%= link_to 'Editar', edit_product_path(product) %></td>
+        <td><%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'New Product', new_product_path %>
