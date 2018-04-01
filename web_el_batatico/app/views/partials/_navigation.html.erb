@@ -1,6 +1,7 @@
 <header>
 	<nav class="be-blue white large-padding">
 		<ul class="no-list row center-xs middle-xs">
+
 			  		
 <li class="col-md">
 	<%= link_to "Productos", products_path %>
@@ -14,19 +15,64 @@
 	
 	<% end %>
 </li>
-			  			<% if user_signed_in? %>
+			  
+
+			<li class="col-md">
+			<% if user_signed_in? and current_user.tipo_cuenta == "Administrador"%>
+				<h1 class="logo">
+					<%= link_to "Baratico.com", root_path %>
+				</h1>
+				<li class="col-md">
+					Productos
+				</li>
+				<li class="col-md">
+					Clientes
+				</li>
+				<li class="col-md">
+					Mensajes
+				</li>
 				<li class="col-md">
 					<%= link_to "Cerrrar sesión", destroy_user_session_path, method: :delete %>
 				</li>
-      <%else%>
-        <li class="col-md">
-          <%= link_to "Iniciar sesión", new_user_session_path%>
-        </li>
-        <li class="col-md">
-          <%= link_to "Crear cuenta", new_user_registration_path%>
-        </li>
-      <%end%>
+			<%elsif user_signed_in? %>
+				<h1 class="logo">
+					<%= link_to "Baratico.com", root_path %>
+				</h1>
+				<li class="col-md">
+					Ofertas
+				</li>
+				<li class="col-md">
+					Carrito de compras
+				</li>
+				<li class="col-md">
+					Mensajes
+				</li>
+				<li class="col-md">
+					Historial de compras
+				</li>
+		        <li class="col-md">
+					<%= link_to "Cerrrar sesión", destroy_user_session_path, method: :delete %>
+				</li>
+			<%else%>
+				<h1 class="logo">
+					<%= link_to "Baratico.com", root_path %>
+				</h1>
+				<li class="col-md">
+					Ofertas
+				</li>
+				<li class="col-md">
+					Carrito de compras
+				</li>
+		        <li class="col-md">
+		          <%= link_to "Iniciar sesión", new_user_session_path%>
+		        </li>
+		        <li class="col-md">
+		          <%= link_to "Crear cuenta", new_user_registration_path%>
+		        </li>
+		    <%end%>
 			
+	
+			</li>
 		</ul>
 	</nav>
 </header>
