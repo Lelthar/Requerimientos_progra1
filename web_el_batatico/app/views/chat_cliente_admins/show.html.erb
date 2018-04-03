@@ -1,19 +1,25 @@
 <p id="notice"><%= notice %></p>
+<div class="row center-xs">
+  <div class="col-xs-8 col-md-6">
+    <div class="box">
+    	<p>
+		  <strong>User:</strong>
+		  <%= @chat_cliente_admin.user_id %>
+		</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @chat_cliente_admin.user %>
-</p>
+		<p>
+		  <strong>Mensaje:</strong>
+		  <%= @chat_cliente_admin.mensaje %>
+		</p>
 
-<p>
-  <strong>Mensaje:</strong>
-  <%= @chat_cliente_admin.mensaje %>
-</p>
+		<p>
+		  <strong>Fecha:</strong>
+		  <%= @chat_cliente_admin.fecha %>
+		</p>
 
-<p>
-  <strong>Fecha:</strong>
-  <%= @chat_cliente_admin.fecha %>
-</p>
+		<%= link_to 'Editar', edit_chat_cliente_admin_path(@chat_cliente_admin) %> |
+		<%= link_to 'Atras', chat_cliente_admins_path %>
 
-<%= link_to 'Edit', edit_chat_cliente_admin_path(@chat_cliente_admin) %> |
-<%= link_to 'Back', chat_cliente_admins_path %>
+    </div>
+  </div>
+</div>

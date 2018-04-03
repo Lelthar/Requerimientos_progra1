@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+	
+  get 'select_message/index'
+
   resources :chat_cliente_admins
   resources :categories
   resources :products
@@ -6,7 +9,7 @@ Rails.application.routes.draw do
   #get 'inicio/index'
 
 
-  root 'products#index'
+  root 'inicio#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

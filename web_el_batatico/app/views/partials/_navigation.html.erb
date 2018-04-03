@@ -3,25 +3,23 @@
 		<ul class="no-list row center-xs middle-xs">
 
 			  		
-<li class="col-md">
-	<%= link_to "Productos", products_path %>
-</li>
-
-<li>
-	<% @categories.each do |category| %>
-	<li class="col-md">
-		<%=link_to category.name, category%>	
-	</li>
-	
-	<% end %>
-</li>
-			  
-
 			<li class="col-md">
 			<% if user_signed_in? and current_user.tipo_cuenta == "Administrador"%>
 				<h1 class="logo">
 					<%= link_to "Baratico.com", root_path %>
 				</h1>
+				<li class="col-md">
+					<%= link_to "Productos", products_path %>
+				</li>
+
+				<li>
+					<% @categories.each do |category| %>
+					<li class="col-md">
+						<%=link_to category.name, category%>	
+					</li>
+					
+					<% end %>
+				</li>
 				<li class="col-md">
 					Productos
 				</li>
@@ -39,13 +37,25 @@
 					<%= link_to "Baratico.com", root_path %>
 				</h1>
 				<li class="col-md">
+					<%= link_to "Productos", products_path %>
+				</li>
+
+				<li>
+					<% @categories.each do |category| %>
+					<li class="col-md">
+						<%=link_to category.name, category%>	
+					</li>
+					
+					<% end %>
+				</li>
+				<li class="col-md">
 					Ofertas
 				</li>
 				<li class="col-md">
 					Carrito de compras
 				</li>
 				<li class="col-md">
-					Mensajes
+					<%= link_to "Mensajes", 'select_message/index'%>
 				</li>
 				<li class="col-md">
 					Historial de compras
@@ -57,6 +67,18 @@
 				<h1 class="logo">
 					<%= link_to "Baratico.com", root_path %>
 				</h1>
+				<li class="col-md">
+					<%= link_to "Productos", products_path %>
+				</li>
+
+				<li>
+					<% @categories.each do |category| %>
+					<li class="col-md">
+						<%=link_to category.name, category%>	
+					</li>
+					
+					<% end %>
+				</li>
 				<li class="col-md">
 					Ofertas
 				</li>
@@ -70,8 +92,6 @@
 		          <%= link_to "Crear cuenta", new_user_registration_path%>
 		        </li>
 		    <%end%>
-			
-	
 			</li>
 		</ul>
 	</nav>

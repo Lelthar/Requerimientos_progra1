@@ -1,31 +1,23 @@
 <p id="notice"><%= notice %></p>
+<div class="row center-xs">
+  <div class="col-xs-8 col-md-6">
+    <div class="box">
+      <h1>Chat Cliente Administrador</h1>
 
-<h1>Chat Cliente Admins</h1>
+      <div class="container">
+      <% @chat_cliente_admins.each do |chat_cliente_admin| %>
+            <% if current_user.id == chat_cliente_admin.user_id%>
+                <div class="message-orange">
+                  <p class="message-content"><%= chat_cliente_admin.mensaje %></p>
+                  <div class="message-timestamp-right"><%= chat_cliente_admin.created_at %></div>
+                </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Mensaje</th>
-      <th>Fecha</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+            <% end %>
+          <% end %>
+      </div>
+      <%= link_to 'Atras', 'select_message/index' %> -
+      <%= link_to 'Enviar nuevo mensaje', new_chat_cliente_admin_path %>
 
-  <tbody>
-    <% @chat_cliente_admins.each do |chat_cliente_admin| %>
-      <tr>
-        <td><%= chat_cliente_admin.user %></td>
-        <td><%= chat_cliente_admin.mensaje %></td>
-        <td><%= chat_cliente_admin.fecha %></td>
-        <td><%= link_to 'Show', chat_cliente_admin %></td>
-        <td><%= link_to 'Edit', edit_chat_cliente_admin_path(chat_cliente_admin) %></td>
-        <td><%= link_to 'Destroy', chat_cliente_admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Chat Cliente Admin', new_chat_cliente_admin_path %>
+    </div>
+  </div>
+</div>
