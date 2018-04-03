@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :apellidos, presence: true
   validates :direccion, presence: true
   before_create :set_estado_tipo_usuario
+  has_many :chat_cliente_admin
   #before_action :authenticate_person!
 
   private

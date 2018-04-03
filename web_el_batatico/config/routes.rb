@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :chat_cliente_admins
   resources :categories
   resources :products
   devise_for :users#, controllers: {registrations: 'users/registrations'}

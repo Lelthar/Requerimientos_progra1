@@ -10,24 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180331204537) do
-
-  create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "codigo"
-    t.string "nombre"
-    t.integer "precio"
-    t.text "descripcion"
-    t.string "disponibles"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "cover_file_size"
-    t.datetime "cover_updated_at"
-  end
+ActiveRecord::Schema.define(version: 20180401083833) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "chat_cliente_admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id"
+    t.string "mensaje"
+    t.date "fecha"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_chat_cliente_admins_on_user_id"
   end
 
   create_table "has_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -58,12 +55,6 @@ ActiveRecord::Schema.define(version: 20180331204537) do
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "tipo_cuenta", default: "", null: false
-    t.string "nombre", default: "", null: false
-    t.string "apellidos", default: "", null: false
-    t.string "nombre_usuario", default: "", null: false
-    t.string "direccion", default: "", null: false
-    t.string "estado", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -74,10 +65,17 @@ ActiveRecord::Schema.define(version: 20180331204537) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tipo_cuenta"
+    t.string "nombre"
+    t.string "apellidos"
+    t.string "nombre_usuario"
+    t.string "direccion"
+    t.string "estado"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chat_cliente_admins", "users"
   add_foreign_key "has_categories", "categories"
   add_foreign_key "has_categories", "products"
 end
